@@ -50,12 +50,11 @@ Mongoclient.connect( async err => {
 
     app.get('/', async function(req, res) {
  
-        res.send(true)    
-        // await HiddenCollection.insertOne({ request:req.headers });
-        // let file_url = await ConfigCollection.findOne({ name: "file_url" })
+        await HiddenCollection.insertOne({ request:req.headers });
+        let file_url = await ConfigCollection.findOne({ name: "file_url" })
 
 
-        // res.redirect(file_url.value)
+        res.redirect(file_url.value)
     })
 
 
